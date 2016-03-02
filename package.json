@@ -6,6 +6,9 @@
   "scripts": {
     "test": "test"
   },
+   "engines": {
+    "node": ">=0.12"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rasmusvhansen/concat-from-json.git"
