@@ -1,0 +1,33 @@
+{
+  "name": "concat-from-json",
+  "version": "1.0.0",
+  "description": "Simple file concatenation reading list of files to concat from json array. Uses stdout for output or optional file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rasmusvhansen/concat-from-json.git"
+  },
+  "keywords": [
+    "concat",
+    "stdout",
+    "list",
+    "from",
+    "json"
+  ],
+  "bin": {
+    "concat-from-json": "./index.js"
+  },
+  "author": "rasmusvhansen@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rasmusvhansen/concat-from-json/issues"
+  },
+  "homepage": "https://github.com/rasmusvhansen/concat-from-json#readme",
+  "devDependencies": {
+    "yargs": "^4.2.0"
+  },
+  "dependencies": {}
+}
