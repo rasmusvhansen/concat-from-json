@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var exampleTxt = 'This will concatenate all the files in the files.json and pipe them to the file specified by the -o argument';
 var stdoutTxt = 'This will concatenate all the files in the files.json and pipe them to stdout';
 var argv = require('yargs')
