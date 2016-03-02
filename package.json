@@ -26,8 +26,8 @@
     "url": "https://github.com/rasmusvhansen/concat-from-json/issues"
   },
   "homepage": "https://github.com/rasmusvhansen/concat-from-json#readme",
-  "devDependencies": {
-    "yargs": "^4.2.0"
-  },
-  "dependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+      "yargs": "^4.2.0"
+  }
 }
