@@ -1,6 +1,6 @@
 {
   "name": "concat-from-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple file concatenation reading list of files to concat from json array. Uses stdout for output or optional file.",
   "main": "index.js",
   "scripts": {
