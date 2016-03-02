@@ -20,7 +20,7 @@
   "bin": {
     "concat-from-json": "./index.js"
   },
-  "author": "rasmusvhansen@gmail.com",
+  "author": "rasmusvhansen",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rasmusvhansen/concat-from-json/issues"
