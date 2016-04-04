@@ -3,9 +3,7 @@ var glob = require('glob');
 function concatFiles(json, output) {
   var files = flatmap(JSON.parse(fs.readFileSync(json.trim(), 'utf8'))
     .map(function (pattern) {
-      console.log(pattern);
       var files = glob.sync(pattern);
-      console.log(files);
       return files;
     }), function (file) {
     return file;
