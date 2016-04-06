@@ -1,5 +1,5 @@
 var fs = require('fs');
-var glob = require("multi-glob").glob;
+var glob = require("glob-all");
 var smc = require('inline-sourcemap-concat').create();
 
 function concatFiles(json, output, sourceMaps) {
