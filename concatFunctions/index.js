@@ -1,5 +1,5 @@
 var fs = require('fs');
-var glob = require('glob');
+var glob = require("multi-glob").glob;
 var Concat = require('concat-with-sourcemaps')
 
 function concatFiles(json, output) {
@@ -18,7 +18,8 @@ function concatFiles(json, output) {
   });
  
   if (output) {
-    fs.writeFile(output, concat.content, 'utf-8');
+    var mapFile = output + '.map';
+    fs.writeFile(output, concat.content + '\n//# sourceMappingURL=/'+mapFile.replace('webapp/', ''), 'utf-8');
     fs.writeFile(output + '.map', concat.sourceMap, 'utf-8');
   }
   else {
