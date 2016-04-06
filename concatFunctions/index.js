@@ -1,27 +1,37 @@
 var fs = require('fs');
 var glob = require("multi-glob").glob;
-var Concat = require('concat-with-sourcemaps')
+var smc = require('inline-sourcemap-concat').create();
 
-function concatFiles(json, output) {
-  var concat = new Concat(true, output, '\n');
+function concatFiles(json, output, sourceMaps) {
   var globs = JSON.parse(fs.readFileSync(json.trim(), 'utf8'));
   console.log(globs);
-  glob(globs, {strict: true}, function(err, files) {
+  glob(globs, {
+    strict: false
+  }, function(err, files) {
     if (err) {
       console.error(err);
       process.exit(1);
     }
-    files.forEach(function(f) {
-      concat.add(f, fs.readFileSync(f, 'utf8'));
-    });
 
-    if (output) {
-      var mapFile = output + '.map';
-      fs.writeFile(output, concat.content + '\n//# sourceMappingURL=/' + mapFile.replace('webapp/', ''), 'utf-8');
-      fs.writeFile(output + '.map', concat.sourceMap, 'utf-8');
+    var out;
+    if (!sourceMaps) {
+      out = files.reduce(function(prev, next) {
+        return prev + fs.readFileSync(next, 'utf8') + '\n' ;
+      }, '');
     }
     else {
-      process.stdout.write(concat.content, 'utf-8');
+      files.forEach(function(f) {
+        smc.addFileSource(f, fs.readFileSync(f, 'utf8') + '\n');
+      });
+
+      out = smc.generate();
+    }
+
+    if (output) {
+      fs.writeFile(output, out);
+    }
+    else {
+      process.stdout.write(out, 'utf-8');
     }
   });
 }

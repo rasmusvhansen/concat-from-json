@@ -14,6 +14,11 @@ var argv = require('yargs')
                  describe : 'the optional resulting file of the concatenation',
                  type : 'string'
                })
+                .option('d', {
+                  alias : 'debug',
+                  describe : 'includes inline source maps',
+                  type : 'boolean'
+                })
                .usage('$0 concat-from-json -j string [-o string]')
                .example('concat-from-json -j files.json -o output.js', exampleTxt)
                .example('concat-from-json -j files.json > output.js', stdoutTxt)
@@ -22,4 +27,4 @@ var argv = require('yargs')
 
 var concatFunctions = require('./concatFunctions');
 
-concatFunctions.concatFiles(argv.j, argv.o);
+concatFunctions.concatFiles(argv.j, argv.o, argv.d);
