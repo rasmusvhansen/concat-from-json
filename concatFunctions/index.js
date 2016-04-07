@@ -4,7 +4,6 @@ var smc = require('inline-sourcemap-concat').create();
 
 function concatFiles(json, output, sourceMaps) {
   var globs = JSON.parse(fs.readFileSync(json.trim(), 'utf8'));
-  console.log(globs);
   glob(globs, {
     strict: false
   }, function(err, files) {
@@ -28,6 +27,7 @@ function concatFiles(json, output, sourceMaps) {
     }
 
     if (output) {
+      console.log('Concatenated ' + files.length + ' files (' + out.length + ' bytes) into ' + output);
       fs.writeFile(output, out);
     }
     else {
